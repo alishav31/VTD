@@ -13,17 +13,18 @@
       justify-content: center;
       align-items: center;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #fbc2eb, #a18cd1);
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       overflow: hidden;
     }
 
-    /* floating hearts */
+    /* Floating hearts */
     .heart {
       position: absolute;
       bottom: -20px;
       font-size: 20px;
       animation: floatUp 7s linear infinite;
       opacity: 0.5;
+      z-index: 1;
     }
 
     @keyframes floatUp {
@@ -32,20 +33,28 @@
     }
 
     .card {
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.96);
       padding: 40px 30px;
-      border-radius: 22px;
+      border-radius: 24px;
       text-align: center;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-      width: 320px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      width: 340px;
       position: relative;
       z-index: 2;
     }
 
+    .subtitle {
+      font-size: 16px;
+      color: #ff4d6d;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
     h2 {
-      color: #7b2cbf;
-      margin-bottom: 25px;
+      color: #ff4d6d;
+      margin-bottom: 30px;
       font-weight: 600;
+      line-height: 1.3;
     }
 
     .buttons {
@@ -60,21 +69,21 @@
       font-size: 16px;
       cursor: pointer;
       position: absolute;
-      transition: transform 0.2s ease;
+      transition: transform 0.25s ease;
     }
 
     .yes {
-      background: #7b2cbf;
+      background: #ff4d6d;
       color: white;
-      left: 30px;
+      left: 35px;
     }
 
     .no {
-      background: #e0d7f5;
-      right: 30px;
+      background: #e6e6e6;
+      right: 35px;
     }
 
-    /* popup */
+    /* Popup */
     .popup {
       position: fixed;
       inset: 0;
@@ -88,41 +97,47 @@
     .popup-content {
       background: white;
       padding: 35px;
-      border-radius: 22px;
+      border-radius: 24px;
       text-align: center;
       max-width: 320px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
     }
 
     .popup-content h3 {
-      color: #7b2cbf;
+      color: #ff4d6d;
       margin-bottom: 10px;
     }
 
+    .popup-content p {
+      color: #444;
+      margin-bottom: 20px;
+    }
+
     .popup-content button {
-      margin-top: 18px;
-      background: #7b2cbf;
+      background: #ff4d6d;
       color: white;
       position: static;
+      padding: 10px 24px;
     }
   </style>
 </head>
 <body>
 
-  <!-- floating hearts -->
+  <!-- Floating hearts -->
   <script>
     for (let i = 0; i < 18; i++) {
-      const h = document.createElement("div");
-      h.className = "heart";
-      h.innerText = "💖";
-      h.style.left = Math.random() * 100 + "vw";
-      h.style.animationDuration = (5 + Math.random() * 4) + "s";
-      document.body.appendChild(h);
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (5 + Math.random() * 4) + "s";
+      document.body.appendChild(heart);
     }
   </script>
 
   <div class="card">
-    <h2>Will you be my Valentine…<br>and my forever? 💍💖</h2>
+    <p class="subtitle">For my future husband 💍❤️</p>
+    <h2>Will you be my Valentine?</h2>
 
     <div class="buttons">
       <button class="yes" onclick="openPopup()">Yes</button>
@@ -130,12 +145,12 @@
     </div>
   </div>
 
-  <!-- popup -->
+  <!-- Popup -->
   <div class="popup" id="popup">
     <div class="popup-content">
-      <h3>Of course you will 💕</h3>
+      <h3>Of course you will 💖</h3>
       <p>Every day with you feels like Valentine’s Day 💍</p>
-      <button onclick="closePopup()">Always 💖</button>
+      <button onclick="closePopup()">Always ❤️</button>
     </div>
   </div>
 
