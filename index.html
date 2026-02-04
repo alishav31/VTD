@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Be My Valentine 💖</title>
+  <title>My Valentine 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -13,82 +13,72 @@
       justify-content: center;
       align-items: center;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      background: linear-gradient(135deg, #fbc2eb, #a18cd1);
       overflow: hidden;
     }
 
-    /* Floating hearts */
+    /* floating hearts */
     .heart {
       position: absolute;
       bottom: -20px;
-      font-size: 22px;
-      animation: float 6s linear infinite;
-      opacity: 0.6;
+      font-size: 20px;
+      animation: floatUp 7s linear infinite;
+      opacity: 0.5;
     }
 
-    @keyframes float {
+    @keyframes floatUp {
       from { transform: translateY(0); }
       to { transform: translateY(-120vh); }
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 30px;
-      border-radius: 25px;
+      background: rgba(255,255,255,0.95);
+      padding: 40px 30px;
+      border-radius: 22px;
       text-align: center;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
       width: 320px;
       position: relative;
       z-index: 2;
     }
 
-    .card img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid #ff4d6d;
-      margin-bottom: 15px;
-    }
-
     h2 {
-      color: #ff4d6d;
-      margin-bottom: 20px;
+      color: #7b2cbf;
+      margin-bottom: 25px;
+      font-weight: 600;
     }
 
     .buttons {
       position: relative;
-      height: 60px;
+      height: 70px;
     }
 
     button {
-      padding: 12px 22px;
+      padding: 12px 26px;
       border: none;
-      border-radius: 25px;
+      border-radius: 30px;
       font-size: 16px;
       cursor: pointer;
       position: absolute;
+      transition: transform 0.2s ease;
     }
 
     .yes {
-      background: #ff4d6d;
+      background: #7b2cbf;
       color: white;
       left: 30px;
     }
 
     .no {
-      background: #ddd;
+      background: #e0d7f5;
       right: 30px;
     }
 
-    /* Custom popup */
+    /* popup */
     .popup {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
+      inset: 0;
+      background: rgba(0,0,0,0.55);
       display: none;
       justify-content: center;
       align-items: center;
@@ -97,66 +87,66 @@
 
     .popup-content {
       background: white;
-      padding: 30px;
-      border-radius: 20px;
+      padding: 35px;
+      border-radius: 22px;
       text-align: center;
-      max-width: 300px;
+      max-width: 320px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
 
     .popup-content h3 {
-      color: #ff4d6d;
+      color: #7b2cbf;
+      margin-bottom: 10px;
     }
 
     .popup-content button {
-      margin-top: 15px;
-      position: static;
-      background: #ff4d6d;
+      margin-top: 18px;
+      background: #7b2cbf;
       color: white;
+      position: static;
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating hearts -->
+  <!-- floating hearts -->
   <script>
-    for (let i = 0; i < 20; i++) {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerText = "💖";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (4 + Math.random() * 4) + "s";
-      document.body.appendChild(heart);
+    for (let i = 0; i < 18; i++) {
+      const h = document.createElement("div");
+      h.className = "heart";
+      h.innerText = "💖";
+      h.style.left = Math.random() * 100 + "vw";
+      h.style.animationDuration = (5 + Math.random() * 4) + "s";
+      document.body.appendChild(h);
     }
   </script>
 
   <div class="card">
-    <img src="me.jpg" alt="Me">
-    <h2>Will you be my Valentine? 💘</h2>
+    <h2>Will you be my Valentine…<br>and my forever? 💍💖</h2>
 
     <div class="buttons">
-      <button class="yes" onclick="showPopup()">Yes</button>
+      <button class="yes" onclick="openPopup()">Yes</button>
       <button class="no" onmouseover="moveNo(this)">No</button>
     </div>
   </div>
 
-  <!-- Popup -->
+  <!-- popup -->
   <div class="popup" id="popup">
     <div class="popup-content">
-      <h3>YAY!!! 💖🌹</h3>
-      <p>You just made my Valentine perfect 🥰</p>
-      <button onclick="closePopup()">Okay 💕</button>
+      <h3>Of course you will 💕</h3>
+      <p>Every day with you feels like Valentine’s Day 💍</p>
+      <button onclick="closePopup()">Always 💖</button>
     </div>
   </div>
 
   <script>
     function moveNo(btn) {
-      const x = Math.random() * 200 - 100;
-      const y = Math.random() * 80 - 40;
+      const x = Math.random() * 160 - 80;
+      const y = Math.random() * 60 - 30;
       btn.style.transform = `translate(${x}px, ${y}px)`;
     }
 
-    function showPopup() {
+    function openPopup() {
       document.getElementById("popup").style.display = "flex";
     }
 
